@@ -129,7 +129,7 @@
 		complete: function(e) {
 			clearInterval(this.timer);
 			this.progress.loaded = this.progress.total;
-			this.intervalUpdate();
+			if (this.intervalUpdate) this.intervalUpdate();
 			if (this.options.onComplete) {
 				var data = this.options.parseResponse ? jQuery.parseJSON(this.xhr.responseText) : undefined;
 				this.options.onComplete.call(this, data);
